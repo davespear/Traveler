@@ -3,16 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TheNewEra</title>
+    <title>@ViewData["Title"] - TravellerTNE</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/TheNewEra.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TheNewEra</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TravellerTNE</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,28 +22,62 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" data-bs-toggle="dropdown">Character</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" data-bs-toggle="dropdown">The New Era</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" data-bs-toggle="dropdown">Referees</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" data-bs-toggle="dropdown">Worlds &amp; Travel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" data-bs-toggle="dropdown">Combat</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" data-bs-toggle="dropdown">Equipment &amp; Technology</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" data-bs-toggle="dropdown">FFS</a>
+                            <ul class="submenu dropdown-menu">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="FireFusionSteel" asp-action="SmallArmsList">Small Arms</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="FireFusionSteel" asp-action="StarshipsList">Starships</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="FireFusionSteel" asp-action="GroundVehiclesList">Ground Vehicles</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="FireFusionSteel" asp-action="LiftVehiclesList">Lift Vehicles</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="FireFusionSteel" asp-action="AircraftList">Aircraft</a>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
-                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - TheNewEra - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <div class="border m-4">
+        <div class="container-fluid">
+            <div class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+            </<div>
+            </div>
+
+            <footer class="border-top footer text-muted">
+                <div class="container">
+                    &copy; 2024 - TravellerTNE - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+            </footer>
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+            @await RenderSectionAsync("Scripts", required: false)
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+     </div>
 </body>
 </html>
