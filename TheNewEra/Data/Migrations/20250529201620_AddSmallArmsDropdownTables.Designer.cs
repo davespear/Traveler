@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheNewEra.Data;
 
@@ -11,9 +12,11 @@ using TheNewEra.Data;
 namespace TheNewEra.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250529201620_AddSmallArmsDropdownTables")]
+    partial class AddSmallArmsDropdownTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -224,7 +227,7 @@ namespace TheNewEra.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("TheNewEra.Models.FireFusionSteel.SmallArms.SmallArmsAmmoCartridgeTypeModifierDropdownModel", b =>
+            modelBuilder.Entity("TheNewEra.Models.FireFusionSteel.SmallArms.SmallArmsTypeDropdownModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -243,187 +246,7 @@ namespace TheNewEra.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SmallArmsAmmoCartridgeTypeModifierDropdown", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Modifier = 0.20000000000000001,
-                            Text = "Shotgun"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Modifier = 0.29999999999999999,
-                            Text = "Shotgun ETC"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Modifier = 0.40000000000000002,
-                            Text = "Straight"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Modifier = 0.80000000000000004,
-                            Text = "Straight ETC"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Modifier = 1.6000000000000001,
-                            Text = "Necked"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Modifier = 3.2000000000000002,
-                            Text = "Necked ETC"
-                        });
-                });
-
-            modelBuilder.Entity("TheNewEra.Models.FireFusionSteel.SmallArms.SmallArmsAmmoSpecialModifierDropdownModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<double?>("Modifier")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TextModifier")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SmallArmsAmmoSpecialModifierDropdown", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Modifier = 2.0,
-                            Text = "None"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Modifier = 2.0,
-                            Text = "HE"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Modifier = 2.0,
-                            Text = "DS"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Modifier = 3.0,
-                            Text = "HEAP"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Modifier = 2.0,
-                            Text = "Traq"
-                        });
-                });
-
-            modelBuilder.Entity("TheNewEra.Models.FireFusionSteel.SmallArms.SmallArmsAmmoTLModifierDropdownModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<double?>("Modifier")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TextModifier")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SmallArmsTLTypeAmmoDropdown", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Modifier = 0.59999999999999998,
-                            Text = "3"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Modifier = 0.69999999999999996,
-                            Text = "4"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Modifier = 0.80000000000000004,
-                            Text = "5"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Modifier = 0.90000000000000002,
-                            Text = "6"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Modifier = 1.0,
-                            Text = "7"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Modifier = 1.1000000000000001,
-                            Text = "8"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Modifier = 1.3,
-                            Text = "9+"
-                        });
-                });
-
-            modelBuilder.Entity("TheNewEra.Models.FireFusionSteel.SmallArms.SmallArmsAmmoTypeDropdownModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<double?>("Modifier")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TextModifier")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SmallArmsAmmoTypeDropdown", (string)null);
+                    b.ToTable("SmallArmsTypeDropdown");
 
                     b.HasData(
                         new
@@ -446,7 +269,7 @@ namespace TheNewEra.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TheNewEra.Models.FireFusionSteel.SmallArms.SmallArmsAmmoTypeModifierDropdownModel", b =>
+            modelBuilder.Entity("TheNewEra.Models.FireFusionSteel.SmallArms.SmallArmsTypeModifierDropdownModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -465,7 +288,7 @@ namespace TheNewEra.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SmallArmsAmmoTypeModifierDropdown", (string)null);
+                    b.ToTable("SmallArmsTypeModifierDropdown");
 
                     b.HasData(
                         new
