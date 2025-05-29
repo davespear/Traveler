@@ -7,13 +7,6 @@
     }
 
     async initializeDropdowns() {
-      /*  const [types, ammoTypeModifiers, ammoTLModifiers, ammoCartridgeTypeModifiers, ammoSpecialModifiers] = await Promise.all([
-            SmallArmsServer.getAmmoTypes(),
-            SmallArmsServer.getAmmoTypeModifiers(),
-            SmallArmsServer.getAmmoTLModifiers(),
-            SmallArmsServer.getAmmoCartridgeTypeModifiers(),
-            SmallArmsServer.getAmmoSpecialModifiers()
-        ]);*/
         const [
             ammoTypes,
             ammoTypeModifiers,
