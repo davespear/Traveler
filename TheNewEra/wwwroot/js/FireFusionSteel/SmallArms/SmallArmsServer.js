@@ -1,23 +1,22 @@
 ﻿// Handles communication with the FireFusionSteel controller for small arms
 const SmallArmsServer = {
-    getAmmoTypes: async function () {
-        const response = await fetch('/FireFusionSteel/GetSmallArmsAmmoTypes');
+    fetchDropdown: async function (url) {
+        const response = await fetch(url);
         return await response.json();
+    },
+    getAmmoTypes: async function () {
+        return await this.fetchDropdown('/FireFusionSteel/GetSmallArmsAmmoTypes');
     },
     getAmmoTypeModifiers: async function () {
-        const response = await fetch('/FireFusionSteel/GetSmallArmsAmmoTypeModifiers');
-        return await response.json();
+        return await this.fetchDropdown('/FireFusionSteel/GetSmallArmsAmmoTypeModifiers');
     },
     getAmmoTLModifiers: async function () {
-        const response = await fetch('/FireFusionSteel/GetSmallArmsAmmoTLTypeModifiers');
-        return await response.json();
+        return await this.fetchDropdown('/FireFusionSteel/GetSmallArmsAmmoTLTypeModifiers');
     },
     getAmmoCartridgeTypeModifiers: async function () {
-        const response = await fetch('/FireFusionSteel/GetSmallArmsAmmoCartridgeTypeModifiers');
-        return await response.json();
+        return await this.fetchDropdown('/FireFusionSteel/GetSmallArmsAmmoCartridgeTypeModifiers');
     },
     getAmmoSpecialModifiers: async function () {
-        const response = await fetch('/FireFusionSteel/GetSmallArmsAmmoSpecialModifiers');
-        return await response.json();
+        return await this.fetchDropdown('/FireFusionSteel/GetSmallArmsAmmoSpecialModifiers');
     }
 };

@@ -15,54 +15,34 @@
         );
     }
 
-    renderAmmoTypeDropdown(options) {
-        this.typeDropdown.innerHTML = '';
+    renderDropdown(dropdown, options) {
+        dropdown.innerHTML = '';
         options.forEach(opt => {
             const option = document.createElement('option');
             option.value = opt.id;
             option.textContent = opt.text;
-            this.typeDropdown.appendChild(option);
+            dropdown.appendChild(option);
         });
+    }
+
+    renderAmmoTypeDropdown(options) {
+        this.renderDropdown(this.typeDropdown, options);
     }
 
     renderAmmoTypeModifierDropdown(options) {
-        this.typeModifierDropdown.innerHTML = '';
-        options.forEach(opt => {
-            const option = document.createElement('option');
-            option.value = opt.id;
-            option.textContent = opt.text;
-            this.typeModifierDropdown.appendChild(option);
-        });
+        this.renderDropdown(this.typeModifierDropdown, options);
     }
 
     renderAmmoTLModifierDropdown(options) {
-        this.tlModifierDropdown.innerHTML = '';
-        options.forEach(opt => {
-            const option = document.createElement('option');
-            option.value = opt.id;
-            option.textContent = opt.text;
-            this.tlModifierDropdown.appendChild(option);
-        });
+        this.renderDropdown(this.tlModifierDropdown, options);
     }
 
     renderAmmoCartridgeTypeModifierDropdown(options) {
-        this.cartridgeTypeModifierDropdown.innerHTML = '';
-        options.forEach(opt => {
-            const option = document.createElement('option');
-            option.value = opt.id;
-            option.textContent = opt.text;
-            this.cartridgeTypeModifierDropdown.appendChild(option);
-        });
+        this.renderDropdown(this.cartridgeTypeModifierDropdown, options);
     }
 
     renderAmmoSpecialModifierDropdown(options) {
-        this.specialModifierDropdown.innerHTML = '';
-        options.forEach(opt => {
-            const option = document.createElement('option');
-            option.value = opt.id;
-            option.textContent = opt.text;
-            this.specialModifierDropdown.appendChild(option);
-        });
+        this.renderDropdown(this.specialModifierDropdown, options);
     }
 
     setTypeModifierDropdownValueByText(text) {
