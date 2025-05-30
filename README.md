@@ -1,4 +1,4 @@
-This is a multi-phase project to create a app that will assist players (primarily game masters) for Traveller. I am starting with The New Era as that has a great deal of calculates and tables that need to used during gameplay. First phases will be functionality for Fire, Fusion and Steel then will move into the base rule book.
+This is a multi-phase project to create a app that will assist players (primarily game masters) for Traveller. I am starting with The New Era as that has a great deal of calculations and tables that need to used during gameplay. First phases will be functionality for Fire, Fusion and Steel then will move into the base rule book.
 
 1. Get the app running with minimal frameworks. (Keep my raw skills active)
 2. Go back and add React and maybe Angular to the UI. (Learn more about React and learn Angular compared to AngularJS)
