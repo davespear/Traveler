@@ -11,27 +11,32 @@
             ammoTypes,
             ammoTypeModifiers,
             ammoTLModifiers,
-            ammoCartridgeTypeModifiers,
             ammoSpecialModifiers
         ] = await Promise.all([
             SmallArmsServer.getAmmoTypes(),
-            SmallArmsServer.getAmmoTypeModifiers(),
+            SmallArmsServer.getAmmoManufacturingModifiers(),
             SmallArmsServer.getAmmoTLModifiers(),
-            SmallArmsServer.getAmmoCartridgeTypeModifiers(),
             SmallArmsServer.getAmmoSpecialModifiers()
         ]);
-        this.model.setAmmoTypeDropdownData(ammoTypes);
-        this.model.setAmmoTypeModifierDropdownData(ammoTypeModifiers);
-        this.model.setAmmoTlModifierDropdownData(ammoTLModifiers);
-        this.model.setAmmoCartridgeTypeModifierDropdownData(ammoCartridgeTypeModifiers);
-        this.model.setAmmoSpecialModifierDropdownData(ammoSpecialModifiers);
-        this.view.renderAmmoTypeDropdown(ammoTypes);
-        this.view.renderAmmoTypeModifierDropdown(ammoTypeModifiers);
-        this.view.renderAmmoTLModifierDropdown(ammoTLModifiers);
-        this.view.renderAmmoCartridgeTypeModifierDropdown(ammoCartridgeTypeModifiers);
-        this.view.renderAmmoSpecialModifierDropdown(ammoSpecialModifiers);
-        this.view.typeDropdown.addEventListener('change', () => this.onTypeDropdownChange());
+        this.setModelDropdowns(ammoTypes, ammoTLModifiers, ammoTypeModifiers, ammoSpecialModifiers)
+        this.setViewDropdowns(ammoTypes, ammoTLModifiers, ammoTypeModifiers, ammoSpecialModifiers)
+        this.presetDropdowns();
+        this.addEventListeners();
         this.onTypeDropdownChange();
+    }
+
+    setModelDropdowns(ammoTypes, ammoTLModifiers, ammoTypeModifiers, ammoSpecialModifiers) {
+        this.model.setAmmoTypeDropdownData(ammoTypes);
+        this.model.setAmmoTlModifierDropdownData(ammoTLModifiers);
+        this.model.setAmmoManufacturingModifierDropdownData(ammoTypeModifiers);
+        this.model.setAmmoSpecialModifierDropdownData(ammoSpecialModifiers);
+    }
+
+    setViewDropdowns(ammoTypes, ammoTLModifiers, ammoTypeModifiers, ammoSpecialModifiers) {
+        this.view.renderAmmoTypeDropdown(ammoTypes);
+        this.view.renderAmmoTLModifierDropdown(ammoTLModifiers);
+        this.view.renderAmmoManufacturingModifierDropdown(ammoTypeModifiers);
+        this.view.renderAmmoSpecialModifierDropdown(ammoSpecialModifiers);
     }
 
     onTypeDropdownChange() {
@@ -40,6 +45,42 @@
             this.view.setTypeModifierDropdownValueByText("Shotgun");
             this.view.setTypeModifierDropdownDisabled(true);
         } else {
+            this.view.setTypeModifierDropdownDisabled(false);
+        }
+    }
+
+    addEventListeners() {
+        this.view.typeDropdown.addEventListener('change', () => {
+            const selectedTypeText = this.view.typeDropdown.options[this.view.typeDropdown.selectedIndex].text;
+            const allManufacturingOptions = this.model.getAmmoManufacturingModifierDropdownData();
+
+            if (selectedTypeText === "Shotgun") {
+                // Only show "Shotgun" and disable
+                const shotgunOption = allManufacturingOptions.filter(opt => opt.text === "Shotgun");
+                this.view.renderAmmoManufacturingModifierDropdown(shotgunOption);
+                this.view.setTypeModifierDropdownValueByText("Shotgun");
+                this.view.setTypeModifierDropdownDisabled(true);
+            } else {
+                // Show all except "Shotgun" and enable
+                const filteredOptions = allManufacturingOptions.filter(opt => opt.text !== "Shotgun");
+                this.view.renderAmmoManufacturingModifierDropdown(filteredOptions);
+                this.view.setTypeModifierDropdownDisabled(false);
+            }
+        });
+    }
+
+    presetDropdowns() {
+        const selectedTypeText = this.view.typeDropdown.options[this.view.typeDropdown.selectedIndex].text;
+        const allManufacturingOptions = this.model.getAmmoManufacturingModifierDropdownData();
+
+        if (selectedTypeText === "Shotgun") {
+            const shotgunOption = allManufacturingOptions.filter(opt => opt.text === "Shotgun");
+            this.view.renderAmmoManufacturingModifierDropdown(shotgunOption);
+            this.view.setTypeModifierDropdownValueByText("Shotgun");
+            this.view.setTypeModifierDropdownDisabled(true);
+        } else {
+            const filteredOptions = allManufacturingOptions.filter(opt => opt.text !== "Shotgun");
+            this.view.renderAmmoManufacturingModifierDropdown(filteredOptions);
             this.view.setTypeModifierDropdownDisabled(false);
         }
     }

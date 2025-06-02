@@ -72,10 +72,10 @@ namespace TheNewEra.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetSmallArmsAmmoTypeModifiers()
+        public JsonResult GetSmallArmsAmmoManufacturingModifiers()
         {
-            var modifiers = _context.Set<SmallArmsAmmoTypeModifierDropdownModel>()
-                .Select(x => new SmallArmsAmmoTypeModifierDropdownModel
+            var modifiers = _context.Set<SmallArmsAmmoManufacturingModifierDropdownModel>()
+                .Select(x => new SmallArmsAmmoManufacturingModifierDropdownModel
                 {
                     Id = x.Id,
                     Text = x.Text,
@@ -91,21 +91,6 @@ namespace TheNewEra.Controllers
         {
             var modifiers = _context.Set<SmallArmsAmmoTLModifierDropdownModel>()
                 .Select(x => new SmallArmsAmmoTLModifierDropdownModel
-                {
-                    Id = x.Id,
-                    Text = x.Text,
-                    Modifier = x.Modifier,
-                    TextModifier = x.TextModifier
-                })
-                .ToList();
-            return Json(modifiers);
-        }
-
-        [HttpGet]
-        public JsonResult GetSmallArmsAmmoCartridgeTypeModifiers()
-        {
-            var modifiers = _context.Set<SmallArmsAmmoCartridgeTypeModifierDropdownModel>()
-                .Select(x => new SmallArmsAmmoCartridgeTypeModifierDropdownModel
                 {
                     Id = x.Id,
                     Text = x.Text,
