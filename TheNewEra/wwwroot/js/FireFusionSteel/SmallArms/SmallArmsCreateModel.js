@@ -3,9 +3,8 @@
         this.data = [];
         this.listeners = [];
         this.typeDropdownData = [];
-        this.typeModifierDropdownData = [];
+        this.ammoManufacturingModifierDropdownData = [];
         this.tlModifierDropdownData = [];
-        this.cartridgeTypeModifierDropdownData = [];
         this.specialModifierDropdownData = [];
     }
 
@@ -31,16 +30,12 @@
         return this.typeDropdownData;
     }
 
-    getAmmoTypeModifierDropdownData() {
-        return this.typeModifierDropdownData;
+    getAmmoManufacturingModifierDropdownData() {
+        return this.ammoManufacturingModifierDropdownData;
     }
 
     getAmmoTLModifierDropdownData() {
         return this.tlModifierDropdownData;
-    }
-
-    getAmmoCartridgeTypeModifierDropdownData() {
-        return this.getCartridgeTypeModifierDropdownData;
     }
 
     getAmmoSpecialModifierDropdownData() {
@@ -51,16 +46,12 @@
         this.typeDropdownData = data;
     }
 
-    setAmmoTypeModifierDropdownData(data) {
-        this.typeModifierDropdownData = data;
+    setAmmoManufacturingModifierDropdownData(data) {
+        this.ammoManufacturingModifierDropdownData = data;
     }
 
     setAmmoTlModifierDropdownData(data) {
         this.tlModifierDropdownData = data;
-    }
-
-    setAmmoCartridgeTypeModifierDropdownData(data) {
-        this.cartridgeTypeDropdownData = data;
     }
 
     setAmmoSpecialModifierDropdownData(data) {

@@ -7,15 +7,13 @@ const SmallArmsServer = {
     getAmmoTypes: async function () {
         return await this.fetchDropdown('/FireFusionSteel/GetSmallArmsAmmoTypes');
     },
-    getAmmoTypeModifiers: async function () {
-        return await this.fetchDropdown('/FireFusionSteel/GetSmallArmsAmmoTypeModifiers');
+    getAmmoManufacturingModifiers: async function () {
+        return await this.fetchDropdown('/FireFusionSteel/GetSmallArmsAmmoManufacturingModifiers');
     },
     getAmmoTLModifiers: async function () {
         return await this.fetchDropdown('/FireFusionSteel/GetSmallArmsAmmoTLTypeModifiers');
     },
-    getAmmoCartridgeTypeModifiers: async function () {
-        return await this.fetchDropdown('/FireFusionSteel/GetSmallArmsAmmoCartridgeTypeModifiers');
-    },
+
     getAmmoSpecialModifiers: async function () {
         return await this.fetchDropdown('/FireFusionSteel/GetSmallArmsAmmoSpecialModifiers');
     }

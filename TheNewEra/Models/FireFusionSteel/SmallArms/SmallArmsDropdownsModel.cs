@@ -6,13 +6,10 @@ namespace TheNewEra.Models.FireFusionSteel.SmallArms
     public class SmallArmsAmmoTypeDropdownModel : SmallArmsAmmoDropdownsModel { }
 
     [Table("SmallArmsTypeModifierDropdown")]
-    public class SmallArmsAmmoTypeModifierDropdownModel : SmallArmsAmmoDropdownsModel { }
+    public class SmallArmsAmmoManufacturingModifierDropdownModel : SmallArmsAmmoDropdownsModel { }
 
     [Table("SmallArmsAmmoTLModifierDropdown")]
     public class SmallArmsAmmoTLModifierDropdownModel : SmallArmsAmmoDropdownsModel { }
-
-    [Table("SmallArmsCartridgeTypeModifierDropdown")]
-    public class SmallArmsAmmoCartridgeTypeModifierDropdownModel : SmallArmsAmmoDropdownsModel { }
 
     [Table("SmallArmsSpecialModifierDropdown")]
     public class SmallArmsAmmoSpecialModifierDropdownModel : SmallArmsAmmoDropdownsModel { }
